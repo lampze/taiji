@@ -20,8 +20,6 @@ function drawYin(cx, cy, r, ctx, rotate) {
     ctx.arc(cx, cy, r, 2*i*s+p, 2*i*s+s+p);
     ctx.stroke();
   }
-  // ctx.arc(cx, cy, r, 0, Math.PI);
-  // ctx.arc(cx, cy, r, Math.PI, 2*Math.PI);
 }
 
 function drawYan(cx, cy, r, ctx) {
@@ -59,19 +57,19 @@ function drawTaiji(cx, cy, r, ctx) {
   ctx.stroke();
 }
 
-function headPic(cx, cy, r, ctx) {
+var befor = [[1,1,1],[1,1,0],[0,1,0],[1,0,0],[0,0,0],[0,0,1],[1,0,1],[0,1,1]];
+var after = [[1,0,1],[0,0,0],[0,1,1],[1,1,1],[0,1,0],[1,0,0],[0,0,1],[1,1,0]];
+
+function headPic(cx, cy, r, yao, ctx) {
   drawTaiji(cx, cy, r, ctx);
-  drawDivin(cx, cy-r*2, r/3, [1,1,1], ctx);
-  drawDivin(cx+Math.sin(Math.PI/4)*2*r, cy-Math.cos(Math.PI/4)*2*r, r/3, [1,1,0], ctx);
-  drawDivin(cx+r*2, cy, r/3, [0,1,0], ctx);
-  drawDivin(cx+Math.sin(Math.PI/4)*2*r, cy+Math.cos(Math.PI/4)*2*r, r/3, [1,0,0], ctx);
-  drawDivin(cx-r*2, cy, r/3, [1,0,1], ctx);
-  drawDivin(cx-Math.sin(Math.PI/4)*2*r, cy+Math.cos(Math.PI/4)*2*r, r/3, [0,0,1], ctx);
-  drawDivin(cx, cy+r*2, r/3, [0,0,0], ctx);
-  drawDivin(cx-Math.sin(Math.PI/4)*2*r, cy-Math.cos(Math.PI/4)*2*r, r/3, [0,1,1], ctx);
+  for(var i = 0; i < 8; i++) {
+    var dx = Math.sin(Math.PI/4*i)*1.618*r,
+        dy = Math.cos(Math.PI/4*i-Math.PI)*1.618*r;
+    drawDivin(cx+dx,cy+dy,r/3,yao[i],ctx);
+  }
 }
 
-headPic(canvas.width/2,canvas.height/2,150,ctx);
+headPic(canvas.width/2,canvas.height/2,canvas.height/5,befor,ctx);
 
 // drawTaiji(canvas.width/2,canvas.height/2,100,ctx);
 // drawDivin(canvas.width/2,canvas.height/2,120,[0,0,0],ctx)
