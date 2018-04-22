@@ -69,6 +69,8 @@ function headPic(cx, cy, r, yao, ctx) {
   }
 }
 
+ctx.lineWidth = 3;
+
 headPic(canvas.width/2,canvas.height/2,canvas.height/5,befor,ctx);
 
 // drawTaiji(canvas.width/2,canvas.height/2,100,ctx);
