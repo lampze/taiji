@@ -3,14 +3,20 @@ var ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// window.onresize = function() {
-//   // var image = new Image();
-//   // image.src = canvas.toDataURL("image/png");
-//   canvas.width = window.innerWidth;
-//   canvas.height = window.innerHeight;
-//   // ctx.drawImage(image,0,0);
-//   drawDivin(canvas.width/2,canvas.height/2,120,[0,0,0],ctx)
-// }
+window.onresize = function() {
+  var image = new Image();
+  image.src = canvas.toDataURL();
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  // setTimeout(function(){ctx.drawImage(image,0,0,canvas.width,canvas.height)},1);
+
+  ctx.lineWidth = 3;
+  ctx.fillStyle = "#eee";
+
+  ctx.rect(0,0,canvas.width,canvas.height);
+  ctx.fill();
+  headPic(canvas.width/2,canvas.height/2,canvas.height/5,after,ctx);
+}
 
 function drawYin(cx, cy, r, ctx, rotate) {
   var s = Math.PI/8;
