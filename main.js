@@ -33,7 +33,7 @@ function drawDivin(cx, cy, r, yao, ctx) {
   for(var i = 0; i < yao.length; i++) {
     if(yao[i] === 1) {
       drawYan(cx, cy, yr*(i+1), ctx);
-    } else {
+    } else if(yao[i] === 0) {
       drawYin(cx, cy, yr*(i+1), ctx);
     }
   }
@@ -70,8 +70,11 @@ function headPic(cx, cy, r, yao, ctx) {
 }
 
 ctx.lineWidth = 3;
+ctx.fillStyle = "#eee";
 
-headPic(canvas.width/2,canvas.height/2,canvas.height/5,befor,ctx);
+ctx.rect(0,0,canvas.width,canvas.height);
+ctx.fill();
+headPic(canvas.width/2,canvas.height/2,canvas.height/5,after,ctx);
 
 // drawTaiji(canvas.width/2,canvas.height/2,100,ctx);
 // drawDivin(canvas.width/2,canvas.height/2,120,[0,0,0],ctx)
