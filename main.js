@@ -75,14 +75,3 @@ ctx.fillStyle = "#eee";
 ctx.rect(0,0,canvas.width,canvas.height);
 ctx.fill();
 headPic(canvas.width/2,canvas.height/2,canvas.height/5,after,ctx);
-
-// drawTaiji(canvas.width/2,canvas.height/2,100,ctx);
-// drawDivin(canvas.width/2,canvas.height/2,120,[0,0,0],ctx)
-
-// drawYan(100,100,40,ctx);
-// drawYin(100,100,20,ctx);
-// drawYan(100,100,60,ctx);
-
-// ctx.beginPath();
-// ctx.arc(95,50,40,0,2);
-// ctx.stroke();
